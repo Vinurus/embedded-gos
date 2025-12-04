@@ -1,5 +1,3 @@
-## English Version
-
 # GPS Bike Computer 🚴‍♂️
 
 [![Status](https://img.shields.io/badge/status-MVP-yellow)](https://github.com/)
@@ -19,7 +17,6 @@ Advanced modular bike computer for real-time ride monitoring and navigation.
 ---
 
 ## 🔹 MVP Features  
-aaa
 
 | Feature | Icon | Description |
 |---------|------|------------|
