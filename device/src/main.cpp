@@ -7,7 +7,9 @@
 #include "Encoder.h"
 #include "SpeedSensor.h"
 #include "Power.h"
+#include <TFT_eSPI.h>
 
+TFT_eSPI tft = TFT_eSPI();
 SystemClock sysClock;
 Scheduler scheduler;
 MessageBus bus;
@@ -19,7 +21,16 @@ SpeedSensor speed(bus);
 Power power(bus);
 
 void setup() {
-    Serial.begin(115200);
+    tft.init();
+    tft.setRotation(1);
+  tft.fillScreen(TFT_BLACK);
+  tft.setTextColor(TFT_WHITE, TFT_BLACK);
+  tft.setTextSize(3);
+  tft.setCursor(20, 50);
+  tft.println("ILI9488 OK!");
+
+
+    /*Serial.begin(115200);
     Serial.println("GOS Firmware starting...");
 
     sysClock.init();
@@ -35,10 +46,10 @@ void setup() {
     scheduler.every(5,   [&](){ buttons.update(); });
     scheduler.every(5,   [&](){ encoder.update(); });
     scheduler.every(20,  [&](){ speed.update(); });
-    scheduler.every(100, [&](){ power.update(); });
+    scheduler.every(100, [&](){ power.update(); });*/
 }
 
 void loop() {
-    scheduler.run();
-    bus.dispatch();
+    /*scheduler.run();
+    bus.dispatch();*/
 }
