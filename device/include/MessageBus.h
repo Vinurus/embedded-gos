@@ -5,6 +5,19 @@
 
 struct Event {
     uint8_t type;
+    int value;
+};
+
+enum EventType {
+    EV_SPEED_CHANGED,
+    EV_BUTTON_PRESSED,
+    EV_ENCODER_TURN,
+    EV_POWER_UPDATE,
+    EV_GPS_SPEED,
+    EV_GPS_LAT,
+    EV_GPS_LON,
+    EV_GPS_FIX_STATE,
+    EV_GPS_RX_BYTES
 };
 
 class MessageBus {
