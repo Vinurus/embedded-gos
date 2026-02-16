@@ -24,6 +24,8 @@ GpsSensor gps(bus);
 MainScreen mainScreen;
 
 
+
+
 void setup() {
     Serial.begin(115200);
 
@@ -40,6 +42,7 @@ void setup() {
     gps.init();
 
     setScreen(&mainScreen);
+    
 
     scheduler.every(5,   [&](){ buttons.update(); });
     scheduler.every(5,   [&](){ encoder.update(); });
@@ -52,10 +55,9 @@ void setup() {
 void loop() {
     scheduler.run();
     bus.dispatch();
-    currentScreen->update();
-    if (currentScreen) {
-        currentScreen->update();
+    if (isNewScreen()) {
         currentScreen->render(display);
     }
+    else currentScreen->update();
 
 }
