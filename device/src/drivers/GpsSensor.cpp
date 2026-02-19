@@ -20,7 +20,7 @@ void GpsSensor::update() {
         rxCount++;
     }
 
-    // co 1 sekundę wyślij event z liczbą bajtów
+    
     static unsigned long last = 0;
     if (millis() - last > 1000) {
         bus.publish({ EV_GPS_RX_BYTES, (int)rxCount });

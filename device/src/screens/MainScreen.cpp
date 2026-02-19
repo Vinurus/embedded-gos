@@ -5,11 +5,11 @@
 #include <TFT_eSPI.h>
 
 
+
 unsigned long lastRender = 0;
 
 void MainScreen::render(Display& d) {
-    d.clear();
-    d.drawText(10, 10, "HELLO", 0xFFFF, 2);
+    
 
     d.clear();
         d.drawText(40, 20, "SPEED", TFT_DARKGREY, 2);
@@ -23,8 +23,17 @@ void MainScreen::render(Display& d) {
 }
 
 
-void MainScreen::update() {
-    // nic
+void MainScreen::update(Display& d) {
+    speed += 0.3;
+    if (speed > 45) speed = 12;
+
+    dist += 0.01;
+    sec++;
+
+    d.drawFormatted(40, 50, TFT_GREEN, 5, "%.1f", speed);
+    d.drawFormatted(40, 160, TFT_WHITE, 2, "%.2f km", dist);
+    d.drawFormatted(40, 200, TFT_WHITE, 2, "%02d:%02d", sec/60, sec%60);
+
 }
 
 void MainScreen::onEvent(const Event& e) {

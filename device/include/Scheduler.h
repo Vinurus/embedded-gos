@@ -11,7 +11,7 @@ struct Task {
     uint32_t nextRun;
     std::function<void()> callback;
 
-    Task() {} // pusty konstruktor
+    Task() {}
     Task(uint32_t i, uint32_t n, std::function<void()> c)
         : interval(i), nextRun(n), callback(c) {}
 };

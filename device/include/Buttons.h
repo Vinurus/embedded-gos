@@ -9,4 +9,6 @@ public:
 
 private:
     MessageBus& bus;
+    const int pin = 12;   
+    bool lastState = HIGH;
 };

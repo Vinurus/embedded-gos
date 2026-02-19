@@ -10,7 +10,7 @@ struct Event {
 
 enum EventType {
     EV_SPEED_CHANGED,
-    EV_BUTTON_PRESSED,
+    EV_BUTTON_PRESS,
     EV_ENCODER_TURN,
     EV_POWER_UPDATE,
     EV_GPS_SPEED,

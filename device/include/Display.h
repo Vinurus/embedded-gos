@@ -1,5 +1,6 @@
 #pragma once
 #include <stdint.h>
+#include <TFT_eSPI.h>
 
 class Display {
 public:

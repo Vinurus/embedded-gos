@@ -9,7 +9,7 @@ public:
     float dist;
     int sec ;
 
-    void update() override;
+    void update(Display& display) override;
 
     void onEvent(const Event& e) override;
 
