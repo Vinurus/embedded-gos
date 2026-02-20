@@ -17,7 +17,11 @@ enum EventType {
     EV_GPS_LAT,
     EV_GPS_LON,
     EV_GPS_FIX_STATE,
-    EV_GPS_RX_BYTES
+    EV_GPS_RX_BYTES,
+    EV_GPS_ALT,
+    EV_GPS_HEADING,
+    EV_GPS_SATS,
+    EV_GPS_HDOP
 };
 
 class MessageBus {
