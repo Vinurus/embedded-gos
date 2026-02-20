@@ -5,7 +5,7 @@
 
 struct Event {
     uint8_t type;
-    int value;
+    double value;
 };
 
 enum EventType {

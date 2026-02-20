@@ -28,10 +28,16 @@ void GpsSensor::update() {
         last = millis();
     }
 
+    bus.publish({EV_GPS_SPEED, gps.speed.kmph() });
+    bus.publish({EV_GPS_ALT, gps.altitude.meters()});
+    bus.publish({EV_GPS_HEADING, gps.course.deg() });
+    bus.publish({EV_GPS_LAT, gps.location.lat() });
+    bus.publish({EV_GPS_LON, gps.location.lng() });
+
     bool fix = gps.location.isValid() && gps.location.age() < 2000;
 
     if (fix != lastFix) {
-        bus.publish({ EV_GPS_FIX_STATE, fix ? 1 : 0 });
+       // bus.publish({ EV_GPS_FIX_STATE, fix ? 1 : 0 });
         lastFix = fix;
     }
 
