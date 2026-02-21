@@ -31,14 +31,14 @@ void GpsStatsScreen::update(Display& d) {
 }
 void GpsStatsScreen::onEvent(const Event& e) {
     switch (e.type) {
-        case EV_GPS_SPEED:      speed = e.value; break;
+        case EV_GPS_SPEED:      speed = e.value/10.0; break;
         case EV_GPS_ALT:        altitude = e.value; break;
         case EV_GPS_HEADING:    heading = e.value; break;
         case EV_GPS_SATS:       sats = e.value; break;
         case EV_GPS_FIX_STATE:  fix = e.value; break;
-        case EV_GPS_HDOP:       hdop = e.value; break;
-        case EV_GPS_LAT:        lat = e.value; break;
-        case EV_GPS_LON:        lon = e.value; break;
+        case EV_GPS_HDOP:       hdop = e.value/10.0; break;
+        case EV_GPS_LAT:        lat = e.value/1000000.0; break;
+        case EV_GPS_LON:        lon = e.value/1000000.0; break;
         case EV_GPS_RX_BYTES:   rxBytes = e.value; break;
     }
 }
